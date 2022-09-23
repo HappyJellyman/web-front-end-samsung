@@ -6,7 +6,7 @@ export function Cart({ products, total, onUpdate }) {
   return (
     <Container>
       <CartTitle />
-      <CartList products={products} total={total} onUpdate={onUpdate} />
+      <CartList />
     </Container>
   );
 }

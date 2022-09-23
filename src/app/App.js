@@ -17,8 +17,10 @@ export default function App() {
 
   const cartValue = useMemo(
     () => ({
-      carts
-    }), [carts]
+      carts,
+      handleUpdateAmount,
+    }),
+    [carts]
   );
 
   useEffect(() => {
@@ -79,11 +81,7 @@ export default function App() {
       <GlobalStyle />
       <Container>
         <CartProvider value={cartValue}>
-          <Cart
-            products={carts.products}
-            total={carts.totalPrice}
-            onUpdate={handleUpdateAmount}
-          />
+          <Cart />
         </CartProvider>
       </Container>
     </>
