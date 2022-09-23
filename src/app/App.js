@@ -15,14 +15,6 @@ export default function App() {
     totalPrice: 0,
   });
 
-  const cartValue = useMemo(
-    () => ({
-      carts,
-      handleUpdateAmount,
-    }),
-    [carts]
-  );
-
   useEffect(() => {
     async function fetchProducts() {
       try {
@@ -67,6 +59,14 @@ export default function App() {
       }),
     }));
   }, []);
+
+  const cartValue = useMemo(
+    () => ({
+      carts,
+      handleUpdateAmount,
+    }),
+    [carts]
+  );
 
   if (loading) {
     return <Loading role="alert">제품 정보 로딩 중...</Loading>;

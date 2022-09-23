@@ -2,21 +2,24 @@ import styled from 'styled-components/macro';
 import CartItem from './CartItem';
 import CartFooter from './CartFooter';
 import { func } from 'prop-types';
+import { useCart } from 'components/Contents/CartContent';
 
-export default function CartList({ products, total, onUpdate }) {
+export default function CartList() {
+  const { carts, handleUpdateAmount } = useCart();
+
   return (
     <Container>
-      {products.map((product) => (
-        <CartItem key={product.id} product={product} onUpdate={onUpdate} />
+      {carts.products.map((product) => (
+        <CartItem
+          key={product.id}
+          product={product}
+          onUpdate={handleUpdateAmount}
+        />
       ))}
-      <CartFooter total={total} />
+      <CartFooter />
     </Container>
   );
 }
-
-CartList.propTypes = {
-  onUpdate: func,
-};
 
 /* -------------------------------------------------------------------------- */
 

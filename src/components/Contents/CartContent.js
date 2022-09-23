@@ -1,4 +1,4 @@
-import { any, string, number, shape } from 'prop-types';
+import { any, string, number, shape, func } from 'prop-types';
 import React, { useContext } from 'react';
 import { StringType } from 'types';
 
@@ -10,15 +10,15 @@ export const CartProvider = ({ value, children }) => {
 
 CartProvider.propTypes = {
   value: shape({
-    title: StringType,
+    title: string,
     products: any,
     totalPrice: number,
+    onUpdateProduct: func
   }),
   children: any,
 };
 
 export const useCart = () => {
   const value = useContext(CartContext);
-  console.log(value);
   return value;
 };
