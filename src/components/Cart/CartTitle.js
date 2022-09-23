@@ -8,14 +8,12 @@ import { useCart } from 'components/Contents/CartContent';
 /* -------------------------------------------------------------------------- */
 
 function _CartTitle({ as: Comp, className, ...restProps }) {
-  const { title } = useCart();
-
-  console.log(title)
+  const { carts } = useCart();
 
   return (
     <Comp className={classNames('cartTitle', className)} {...restProps}>
       <SvgIconCart />
-      {title}
+      {carts.title}
     </Comp>
   );
 }
